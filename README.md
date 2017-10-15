@@ -37,7 +37,7 @@ Some of the applications of this problem statement are :
 
 -Application of normal text ­parsing rules not applicable.  
 -For example :
---Multiple Sclerosis is a disease name but Multiple could be mistaken for a common terminology.
+-Multiple Sclerosis is a disease name but Multiple could be mistaken for a common terminology.
 -Our task is to identify author of the document (twitter posts) not identifying words / phrases. This makes the job of classification more difficult, as deep semantic analysis and inference is involved.
 -Tweets are informal, noisy with linguistic errors and idiosyncratic style which degrades the performance of NLP tools on them.
 -Learning distributed representations for medical tweets.
