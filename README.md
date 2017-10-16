@@ -1,13 +1,13 @@
-#Contributors
+# Contributors
 -Vini Garg
 -Rama Rohit
 -Rohit Dayama
 -Sanket Shah
 
-#Medical-Persona-Classification-in-Social-Media
+# Medical-Persona-Classification-in-Social-Media
 
 
-##Problem Statement
+## Problem Statement
 Identifying medical persona from a social media posts like twitter and blogs is important for drug marketing and drug safety. In this project we will explore different approaches  to classify medical persona associated with the social media post.
 
 it can be considered a multi labeled supervised text classification problem.
@@ -16,13 +16,13 @@ The task of the project is two fold :
 -Manually generating additional dataset , or crawling over less dependable dataset for features.
 -Medical Social media post classification.
 
-##Dataset
+## Dataset
 We will use previously prepared data, where 1581 blogs and 1025 tweets were annotated. 
 The inter-annotator agreement between 4 annotators is 0.708 for blogs and 0.70 for tweets. The label cardinality of blogs and tweets is 1.18 and 1.24 respectively. The maximum label cardinality of a blog is 2 and that of a tweet is 3.
 
 Also, if more data is required then we will either crawl over tweets which have already been labelled or manually generate more data like our predecessors did.
 
-##Applications:
+## Applications:
 Some of the applications of this problem statement are :
 -To gather information about drug usage, adverse events, benefits and side effects from patients.  
 -To find out the kind of informational assistance sought by caretakers and put such information readily available.
@@ -33,7 +33,7 @@ Some of the applications of this problem statement are :
 -To acquire or collaborate on technologies invented by researchers that can be a part of the drug pipeline.
 -To gather information about journalists’ survey on quality of life of patients.
 
-##Challenges:
+## Challenges:
 
 -Application of normal text ­parsing rules not applicable.  
 -For example :
