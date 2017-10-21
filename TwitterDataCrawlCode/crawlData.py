@@ -33,18 +33,22 @@ class StdOutListener(StreamListener):
 			#fp=open(tweet['id'],'w+');
 
 			#print str(tweet['id'])[5:]
+			
+			
+			final = str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(tweet['entities']['user_mentions'])+',_'+str(tweet['retweet_count'])+',_'+str(tweet['entities']['hashtags'])+',_'+str(tweet['entities']['urls'])
+			final = final + "\n\n"
+			final = final +tweet['text'].encode('utf-8')
+			final = final +"\n\n"
+			
+			final = final +str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(len(tweet['entities']['user_mentions']))+',_'+str(tweet['retweet_count'])+',_'+str(len(tweet['entities']['hashtags']))+',_'+str(len(tweet['entities']['urls']))+',_'+str(len(tweet['text'].split(' ')))
+			
 			fp = open('../../data/'+str(tweet['id']),'w+')
-			#fp.write(str(tweet)+'\n\n')
-			fp.write(str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(tweet['entities']['user_mentions'])+',_'+str(tweet['retweet_count'])+',_'+str(tweet['entities']['hashtags'])+',_'+str(tweet['entities']['urls']))
-			fp.write("\n\n")
-			fp.write(tweet['text'].encode('utf-8'))
-			fp.write("\n\n")
-			fp.write(str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(len(tweet['entities']['user_mentions']))+',_'+str(tweet['retweet_count'])+',_'+str(len(tweet['entities']['hashtags']))+',_'+str(len(tweet['entities']['urls']))+',_'+str(len(tweet['text'].split(' '))))
+			fp.write(final)
 			#print "\nTWEET\n"
 			#print tweet['text'].encode('utf-8')
 			self.num_tweets += 1
 			fp.close()
-			if(self.num_tweets>200):
+			if(self.num_tweets>100):
 				return False
 		except Exception as e: 
 			print(e)
@@ -55,7 +59,7 @@ class StdOutListener(StreamListener):
 
 
 
-f = open('most_common_diseases.csv') #I have taken only diseases into consideration, but we can take other keywords. 
+f = open('pharmacist_keywords.csv') #I have taken only diseases into consideration, but we can take other keywords. 
 
 if __name__ == '__main__':
 
