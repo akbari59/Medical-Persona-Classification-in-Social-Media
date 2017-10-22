@@ -1,24 +1,24 @@
 from TwitterSearch import *
 import sys,os
 m=sys.argv[1]
-os.system('mkdir '+'caretaker/'+m)
+os.system('mkdir '+'journalist/'+m)
 fp=open('key_words','r').readlines()
 key_words=[]
 for word in fp:
 	key_words.append(word[:len(word)-1])
-fp1=open('caretaker/'+m+'/full_info','w+')
-fp2=open('caretaker/'+m+'/parsed_info','w+')
-fp3=open('caretaker/'+m+'/features','w+')
+fp1=open('journalist/'+m+'/full_info','w+')
+fp2=open('journalist/'+m+'/parsed_info','w+')
+fp3=open('journalist/'+m+'/features','w+')
 try:
 	tso=TwitterSearchOrder()
 	tso.set_count(100)
 	tso.set_keywords(key_words,or_operator = True)
 	tso.add_keyword("from:"+m)
 	ts = TwitterSearch(
-        consumer_key = 'Dtvh3omh0KWl57nr2HQyUh59y',
-        consumer_secret = 'IfLVLuB9vjYRWLl5wAuJeDVCzLDKKpULfndqsfljYZh7h1tC3c',
-        access_token = '920674452374822912-SflTtjg4BgZRvcgvVVrdecMdS6qoomV',
-        access_token_secret = 'Sz7Yi4uKnqf2dgWtjzJgUQBZur2ixIY7kcxmj4DeLcr3g'
+        consumer_key = 'HoFcB01RSFfjH5JsWLEQSrFoE',
+        consumer_secret = 'SUHPOIzgrcvGIVkjwWLrMmUPcyTYlE7QueFfRsRgTQGmsMOaHz',
+        access_token = '3195213416-ayJfcbaZ8kF50OflTS4jJKLZ1tkDCqIXWPLZ3Xl',
+        access_token_secret = 'mNXaGugwZui9Xc8OT9R6iwzGScRR0nI5hVSCbC4gMEzfv'
      )
 	for tweet in ts.search_tweets_iterable(tso):
 		print tweet

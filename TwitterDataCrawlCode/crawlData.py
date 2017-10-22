@@ -10,10 +10,10 @@ from tweepy import Stream
 import json
 
  
-consumer_key = '--take from doc--'
-consumer_secret = '--take from doc--'
-access_token = '--take from doc--'
-access_token_secret = '--take from doc--'
+consumer_key = 'OYgHCmh8fkfbUEnEFylgRWLmh'
+consumer_secret = '1iZJIWdADMjPUyppLMqPJH2iV3ZDDlfZ8S6YBmFGNYmW9Nn61T'
+access_token = '3195213416-vcOOcQtvE0ZV42lh0sHQbjgZjhdq6soyn2F0kqg'
+access_token_secret = 'efIcUT4L8pL4wzqYShwddNu5zjdWJzVJ6L6k9Kl7Y5Qww'
 
 data_extraction_keywords=[]
 
