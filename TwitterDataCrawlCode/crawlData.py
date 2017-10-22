@@ -20,30 +20,56 @@ data_extraction_keywords=[]
 #class to crawl twitter data in a stream
 class StdOutListener(StreamListener):
 
-    def on_data(self, data):
-        tweet = json.loads(data)
-        try:
-        	#you can redirect the ouput of this program to a file. 
-        	print str(tweet['id'])+","+tweet['user']['name']+","+tweet['user']['screen_name']+","+str(tweet['user']['followers_count'])+","+tweet['text']+","+tweet['user']['description']+","+str(tweet['user']['statuses_count'])
-        except:
-        	x=1
-        return True
+	def __init__(self, api=None):
+		super(StdOutListener, self).__init__()
+		self.num_tweets = 0
 
-    def on_error(self, status):
-        print status
+	def on_data(self, data):
+		tweet = json.loads(data)
+		try:
+			#you can redirect the ouput of this program to a file. 
+			#print str(tweet['id'])+"|"+tweet['user']['name']+"|"+tweet['user']['screen_name']+"|"+str(tweet['user']['followers_count'])+"|"+tweet['text']+"|"+tweet['user']['description']+"|"+str(tweet['user']['statuses_count'])
+			#print tweet['id']
+			#fp=open(tweet['id'],'w+');
+
+			#print str(tweet['id'])[5:]
+			
+			
+			final = str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(tweet['entities']['user_mentions'])+',_'+str(tweet['retweet_count'])+',_'+str(tweet['entities']['hashtags'])+',_'+str(tweet['entities']['urls'])
+			final = final + "\n\n"
+			final = final +tweet['text'].encode('utf-8')
+			final = final +"\n\n"
+			
+			final = final +str(tweet['user']['followers_count'])+',_'+str(tweet['user']['friends_count'])+',_'+str(len(tweet['entities']['user_mentions']))+',_'+str(tweet['retweet_count'])+',_'+str(len(tweet['entities']['hashtags']))+',_'+str(len(tweet['entities']['urls']))+',_'+str(len(tweet['text'].split(' ')))
+			
+			fp = open('../../data/'+str(tweet['id']),'w+')
+			fp.write(final)
+			#print "\nTWEET\n"
+			#print tweet['text'].encode('utf-8')
+			self.num_tweets += 1
+			fp.close()
+			if(self.num_tweets>100):
+				return False
+		except Exception as e: 
+			print(e)
+		return True
+
+	def on_error(self, status):
+	    print status
 
 
 
-f = open('top_50_diseases.csv') #I have taken only diseases into consideration, but we can take other keywords. 
+f = open('pharmacist_keywords.csv') #I have taken only diseases into consideration, but we can take other keywords. 
 
 if __name__ == '__main__':
 
 	#to append the data from the file to the list data_extraction_keywords
 	for line in f:
 		data_extraction_keywords.append(line[:-1])
+		print line[:-1]
 	#print data_extraction_keywords
 	l = StdOutListener()
 	auth = OAuthHandler(consumer_key, consumer_secret)
 	auth.set_access_token(access_token, access_token_secret)
 	stream = Stream(auth, l)
-	stream.filter(track=data_extraction_keywords) #search for all the tweets which contain one or more keywords.
+	stream.filter(languages=["en"], track=data_extraction_keywords) #search for all the tweets which contain one or more keywords.

@@ -11,7 +11,7 @@ fp2=open('journalist/'+m+'/parsed_info','w+')
 fp3=open('journalist/'+m+'/features','w+')
 try:
 	tso=TwitterSearchOrder()
-	tso.set_count(100)
+	tso.set_count(10)
 	tso.set_keywords(key_words,or_operator = True)
 	tso.add_keyword("from:"+m)
 	ts = TwitterSearch(
