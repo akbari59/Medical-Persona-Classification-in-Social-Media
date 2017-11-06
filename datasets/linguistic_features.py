@@ -8,36 +8,36 @@ import string
 
 ssa=defaultdict(int)
 for i in open("strongsubj-adj.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	ssa[i]=1
 
 wsa=defaultdict(int)
 for i in open("weaksubj-adj.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	wsa[i]=1
 ssn=defaultdict(int)
 for i in open("strongsubj-noun.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	ssn[i]=1
 
 wsn=defaultdict(int)
 for i in open("weaksubj-noun.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	wsn[i]=1
 
 sw=defaultdict(int)
 for i in open("self_words",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	sw[i]=1
 
 pp=defaultdict(int)
 for i in open("polar-pos.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	pp[i]=1
 
 pn=defaultdict(int)
 for i in open("polar-neg.txt",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	pn[i]=1
 
 # sp=defaultdict(int)
@@ -49,6 +49,7 @@ def feature_getter(text):
 	tokenized=nltk.word_tokenize(text.decode('utf-8'))
 	s_s_a=0;s_s_n=0;w_s_a=0;w_s_n=0;s_w=0;p_p=0;p_n=0;s_p=0
 	for i in tokenized:
+		i=i.lower()
 		if i in ssa:
 			s_s_a+=1
 		if i in ssn:
@@ -105,7 +106,7 @@ def num_stop_words(text):
 	tokenized=nltk.word_tokenize(text.decode('utf-8'))
 	summ=0
 	for word in tokenized:
-		if word in stop:
+		if word.lower() in stop:
 			summ+=1
 	return summ
 
