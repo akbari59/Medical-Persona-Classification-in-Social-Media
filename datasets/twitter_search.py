@@ -115,7 +115,13 @@ def get_features(tweet):
 
 
 fp=open("drug_list",'r')
+flag=0
 for i in fp:
+	if(flag==0):
+		if(i[0]=='#'):
+			flag=1
+		continue
+	twt=defaultdict(int)
 	i=i.strip()
 	print i
 	try:
@@ -127,10 +133,14 @@ for i in fp:
     	    consumer_key = 'kvNIyBZq0lCdZlRcplINHBlMP',
     	    consumer_secret = '9fFI6t6lcVXYVZxaXlML0zgJsupBgkJQWkXxAgjz65cbYz1iEh',
     	    access_token = '920674452374822912-vpeBh4pCS2DcNQYpwt7S3dkYhe7nm4E',
-    	    access_token_secret = 'cQgYn2Z7PReG7KfjkTTu2ca88NRFd3imTdcSqZT8SWsuI'
+    	    access_token_secret = 'cQgYn2Z7PReG7KfjkTTu2ca88NRFd3imTdcSqZT8SWsuI',
+    	    proxy='proxy.iiit.ac.in:8080'
     	 )
 
 		for tweet in ts.search_tweets_iterable(tso):
+			if(twt[tweet['text']]==1):
+				continue
+			twt[tweet['text']]=1
 			print 'hi'
 			print str(tweet['text'].encode('utf-8'))
 			features=get_features(tweet)
