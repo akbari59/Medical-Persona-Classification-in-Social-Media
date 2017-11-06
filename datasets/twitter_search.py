@@ -114,6 +114,9 @@ def get_features(tweet):
 	return features
 
 
+
+uni_tweets=[]
+
 fp=open("drug_list",'r')
 for i in fp:
 	i=i.strip()
@@ -131,6 +134,12 @@ for i in fp:
     	 )
 
 		for tweet in ts.search_tweets_iterable(tso):
+			if str(tweet['text'].encode('utf-8')) in uni_tweets:
+				print 'sdf'
+				continue
+			else:
+				print 'no repeat'
+				uni_tweets.append(str(tweet['text'].encode('utf-8')))
 			print 'hi'
 			print str(tweet['text'].encode('utf-8'))
 			features=get_features(tweet)

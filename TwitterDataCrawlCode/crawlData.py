@@ -48,7 +48,7 @@ class StdOutListener(StreamListener):
 			#print tweet['text'].encode('utf-8')
 			self.num_tweets += 1
 			fp.close()
-			if(self.num_tweets>100):
+			if(self.num_tweets>500):
 				return False
 		except Exception as e: 
 			print(e)
