@@ -8,24 +8,24 @@ from linguistic_features import feature_getter,pos_getter,get_wotscore , num_sto
 
 sl=defaultdict(int)
 for i in open("list_swear",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	sl[i]=1
 
 pos_e=defaultdict(int)
 for i in open("postive_emotion",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	pos_e[i]=1
 
 neg_e=defaultdict(int)
 for i in open("negative_emotion",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	neg_e[i]=1
 
 def pos_emo(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in pos_e:
+		if word.lower() in pos_e:
 			sc+=1
 			break
 	return sc
@@ -34,7 +34,7 @@ def neg_emo(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in neg_e:
+		if word.lower() in neg_e:
 			sc+=1
 			break
 	return sc
@@ -44,7 +44,7 @@ def swear_number(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in sl:
+		if word.lower() in sl:
 			sc=1
 			break
 	return sc
