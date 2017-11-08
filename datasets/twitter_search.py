@@ -8,24 +8,24 @@ from linguistic_features import feature_getter,pos_getter,get_wotscore , num_sto
 
 sl=defaultdict(int)
 for i in open("list_swear",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	sl[i]=1
 
 pos_e=defaultdict(int)
 for i in open("postive_emotion",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	pos_e[i]=1
 
 neg_e=defaultdict(int)
 for i in open("negative_emotion",'r').readlines():
-	i=i.strip()
+	i=i.strip().lower()
 	neg_e[i]=1
 
 def pos_emo(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in pos_e:
+		if word.lower() in pos_e:
 			sc+=1
 			break
 	return sc
@@ -34,7 +34,7 @@ def neg_emo(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in neg_e:
+		if word.lower() in neg_e:
 			sc+=1
 			break
 	return sc
@@ -44,7 +44,7 @@ def swear_number(text):
 	words=text.split(" ")
 	sc=0
 	for word in words:
-		if word in sl:
+		if word.lower() in sl:
 			sc=1
 			break
 	return sc
@@ -118,7 +118,13 @@ def get_features(tweet):
 uni_tweets=[]
 
 fp=open("drug_list",'r')
+flag=0
 for i in fp:
+	# if(flag==0):
+	# 	if(i[0]=='#'):
+	# 		flag=1
+	# 	continue
+	twt=defaultdict(int)
 	i=i.strip()
 	print i
 	try:
@@ -130,16 +136,15 @@ for i in fp:
     	    consumer_key = 'kvNIyBZq0lCdZlRcplINHBlMP',
     	    consumer_secret = '9fFI6t6lcVXYVZxaXlML0zgJsupBgkJQWkXxAgjz65cbYz1iEh',
     	    access_token = '920674452374822912-vpeBh4pCS2DcNQYpwt7S3dkYhe7nm4E',
-    	    access_token_secret = 'cQgYn2Z7PReG7KfjkTTu2ca88NRFd3imTdcSqZT8SWsuI'
+    	    access_token_secret = 'cQgYn2Z7PReG7KfjkTTu2ca88NRFd3imTdcSqZT8SWsuI',
+    	    proxy='proxy.iiit.ac.in:8080'
     	 )
 
 		for tweet in ts.search_tweets_iterable(tso):
-			if str(tweet['text'].encode('utf-8')) in uni_tweets:
-				print 'sdf'
+
+			if(twt[tweet['text']]==1):
 				continue
-			else:
-				print 'no repeat'
-				uni_tweets.append(str(tweet['text'].encode('utf-8')))
+			twt[tweet['text']]=1
 			print 'hi'
 			print str(tweet['text'].encode('utf-8'))
 			features=get_features(tweet)
