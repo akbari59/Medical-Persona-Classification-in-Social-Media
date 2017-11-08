@@ -55,6 +55,8 @@
 
 ### The following files are present in the folder
 * twitter_search.py - This is a main python which crawls the tweets using keywords from the drug_list file and uses all the other text and python files to extract features from the crawled data. 
+* classifier.py - This is a python file which classifies the tweets on the basis of word-embedding only. 
+* classifier2.py - This is a python file which classifies the tweets using word-embedding as well as the features appended. 
 * drug_list - This file contains 441 drugs names which are used for querying twitter data. 
 * dynamic.txt - This file contains all those words which describe one's personality. 
 * get_smiley.py - This is a python file which is used to fetch all the smileys present in the tweet. The file contains two functions namely happy and sad for detecing happy and sad smiley respectively. 
