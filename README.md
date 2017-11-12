@@ -1,9 +1,9 @@
 # Contributors
 
--Vini Garg
--Rama Rohit
--Rohit Dayama
--Sanket Shah
+    Vini Garg
+    Rama Rohit
+    Rohit Dayama
+    Sanket Shah
 
 # Medical-Persona-Classification-in-Social-Media
 
