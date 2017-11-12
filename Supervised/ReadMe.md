@@ -53,6 +53,18 @@
 ### The Features that are extracted from Tweet Links
 * WOT score of URL
 
+### Classifiers
+#To run use python2.7 + name of classifiers (as below)
+* classifier_cnn+lstm.py:   	
+* classifier_cnn.py 	
+* classifier_hybrid_cnn_lstm.py
+* classifier_lstm.py 	
+* classifier_without_features.py
+
+### Predictor
+Use python2.7 predictor.py then give tweet as raw input for predicting it.
+
+
 ### The following files are present in the folder
 * twitter_search.py - This is a main python which crawls the tweets using keywords from the drug_list file and uses all the other text and python files to extract features from the crawled data. 
 * classifier.py - This is a python file which classifies the tweets on the basis of word-embedding only. 
