@@ -19,11 +19,9 @@ The task of the project is two fold :
 * Medical Social media post classification.
 
 ## Dataset
-We will use previously prepared data, where 1581 blogs and 1025 tweets were annotated. 
+We will use dataset with 1971 tweets extracted from twitter and annotated manually. 
 
-The inter-annotator agreement between 4 annotators is 0.708 for blogs and 0.70 for tweets. The label cardinality of blogs and tweets is 1.18 and 1.24 respectively. The maximum label cardinality of a blog is 2 and that of a tweet is 3.
-
-Also, if more data is required then we will either crawl over tweets which have already been labelled or manually generate more data like our predecessors did.
+The label cardinality tweets is 1.8 . The maximum label cardinality of a tweet is 3.
 
 ## Applications:
 Some of the applications of this problem statement are :
