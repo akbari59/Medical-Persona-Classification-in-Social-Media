@@ -7,6 +7,16 @@
 
 # Medical-Persona-Classification-in-Social-Media
 
+# Two Approaches:
+Semisupervised: We collected the handles of different people belonging to different persona, on basis of of the popularity of the person. We then crawled tweets made by these handles, using TwitterSearch API. 
+
+Supervised: 
+While crawling some filters were applied to retrieve tweets of medical domain only by the selected handle users.
+For example :  Top400 drugs used in medicines were treated as a filter parameter.
+Then resulted tweets were then manually annotated as:
+Positive / Negative / Neutral Sentiment
+Possible personna like Patient, Caretaker, Consultant, etc.
+
 
 ## Problem Statement
 
