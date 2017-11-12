@@ -17,12 +17,7 @@ The task of the project is two fold :
 
 * Medical Social media post classification.
 
-## Dataset
-We will use dataset with 1971 tweets extracted from twitter and annotated manually. 
-
-The label cardinality tweets is 1.8 . The maximum label cardinality of a tweet is 3.
-
-### Approaches
+## Crawling Approaches
 1. Semi Supervised Approach
 We collected the handles of different people belonging to different persona, on basis of of the popularity of the person.
 We then crawled tweets made by these handles, using TwitterSearch API. 
