@@ -31,13 +31,21 @@ Also, if more data is required then we will either crawl over tweets which have 
 
 ## Applications:
 Some of the applications of this problem statement are :
+
 -To gather information about drug usage, adverse events, benefits and side effects from patients.  
+
 -To find out the kind of informational assistance sought by caretakers and put such information readily available.
+
 -To identify key opinion leaders in a drug or disease area.
+
 -To find out if a doctor has patients who can take part in a clinical trial.
+
 -To find information on symptoms of newly evolving diseases.
+
 -To gather information on conversations between pharmacists and others to identify drug dosage, interactions and therapeutic effects.
+
 -To acquire or collaborate on technologies invented by researchers that can be a part of the drug pipeline.
+
 -To gather information about journalists’ survey on quality of life of patients.
 
 ## Challenges:
